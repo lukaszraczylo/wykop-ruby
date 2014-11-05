@@ -32,7 +32,7 @@ $ gem install wykop
 
 ### Documentation
 
-* [Read the f** doc](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/readme.md)
+* [Read the f** doc](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/index.md)
 
 ### Usage
 
