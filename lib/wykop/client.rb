@@ -1,7 +1,9 @@
 require 'wykop/configuration'
 require 'wykop/operations/user'
 require 'wykop/error'
+require 'wykop/burst_struct'
 require 'awesome_print'
+require 'httparty'
 
 module Wykop
 	class Client
