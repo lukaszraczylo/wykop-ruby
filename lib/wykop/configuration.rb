@@ -1,6 +1,6 @@
 module Wykop
 	class Configuration
-		AUTH_KEYS = [:consumer_key, :consumer_secret]
+		AUTH_KEYS = [:consumer_key, :consumer_secret, :api_host]
 		attr_accessor *AUTH_KEYS
 
 		# Creates configuration
