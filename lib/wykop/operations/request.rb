@@ -1,3 +1,6 @@
+require 'digest/md5'
+require 'httparty'
+
 module Wykop
 	module Operations
 		class Request
