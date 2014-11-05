@@ -45,9 +45,6 @@ module Wykop
                   	return @request.execute(q_url, q_body)
                   end
 
-
-
-
                   # Needs to be here, at least till i figure out where to put it
 
                   def replace_url( banana = nil, potato = nil)

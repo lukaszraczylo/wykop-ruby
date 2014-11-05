@@ -2,6 +2,13 @@
 
 This is a Ruby Gem for the Wykop.pl API. It should simplify the process of consuming data from the Wykop.pl API for developers using Ruby.
 
+
+### Heads up
+
+Until version 0.9+ gem will and should be considered as 'under heavy development'. Please be aware and don't bitch too much.
+
+If you'd like to contribute - I'm really happy with your pull requests so feel free!
+
 ### Installation
 Add following to your application Gemfile:
 
@@ -20,6 +27,12 @@ Or install it on your own:
 ```
 $ gem install wykop
 ```
+
+
+
+### Documentation
+
+* [Read the f** doc](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/readme.md)
 
 ### Usage
 
