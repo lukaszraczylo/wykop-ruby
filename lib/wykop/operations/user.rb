@@ -10,21 +10,31 @@ module Wykop
       end
 
       def login
-      	# Opening new connection to wykop API
-      	ap login_request
+      	# Opening new connection to wykop API. It returns configuration hash and all the client information
+      	@client.user_info = login_request
+      	if @client.user_info.nil?
+      		return false
+      	end
+      	return true
+      end
+
+      def info(what = nil)
+      	request = Wykop::Operations::Request.new(@client)
+      	if what == nil
+      		return @client.user_info
+      	else
+      		return @client.user_info[what]
+      	end
       end
 
       private
 
       def login_request(params = nil)
       	# Building request URL
-      	q_url = "#{@client.configuration.api_host}/user/login/appkey/#{@client.configuration.app_user_key}"
+      	request = Wykop::Operations::Request.new(@client)
       	q_body = { 'login' => @client.configuration.app_username, 'accountkey' => @client.configuration.app_generated_key }
-      	q_body_parsed = q_body['accountkey'] + "," + q_body['login']
-      	request_signature = Digest::MD5.hexdigest(@client.configuration.app_user_secret + q_url + q_body_parsed)
-      	# Signing up app request. I mean.. Seriously? What's wrong with them?
-      	result = HTTParty.post(q_url.to_s, :body => q_body, :headers => { "apisign" => request_signature } )
-      	result
+      	q_url = "#{@client.configuration.api_host}/user/login/appkey/#{@client.configuration.app_user_key}"
+      	request.execute(q_url, q_body)
       end
 		end
 	end

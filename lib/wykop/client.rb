@@ -1,5 +1,6 @@
 require 'wykop/configuration'
 require 'wykop/operations/user'
+require 'wykop/operations/request'
 require 'wykop/error'
 require 'wykop/burst_struct'
 require 'awesome_print'
@@ -7,11 +8,16 @@ require 'httparty'
 
 module Wykop
 	class Client
-			REQUEST_CLASSES = [ Wykop::Operations::User ]
+			REQUEST_CLASSES = [ Wykop::Operations::User, 
+				Wykop::Operations::Request ]
 			attr_reader :configuration
+			attr_accessor :user_info
+			attr_accessor :request_data
 
 			def initialize(options = nil)
-					@configuration = nil
+					@configuration 	= nil
+					@user_info 			= nil
+					@request_data 	= nil
 					define_request_methods
 
 					unless options.nil?
