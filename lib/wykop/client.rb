@@ -9,12 +9,14 @@ require 'httparty'
 require 'wykop/operations/request'
 
 require 'wykop/operations/top'
+require 'wykop/operations/rank'
+require 'wykop/operations/links'
 require 'wykop/operations/popular'
 
 module Wykop
 	class Client
-			REQUEST_CLASSES = [ Wykop::Operations::User, 
-				Wykop::Operations::Request, Wykop::Operations::Top, Wykop::Operations::Popular ]
+			REQUEST_CLASSES = [ Wykop::Operations::User, Wykop::Operations::Request, Wykop::Operations::Top, 
+				Wykop::Operations::Popular, Wykop::Operations::Links, Wykop::Operations::Rank ]
 			attr_reader :configuration
 			attr_accessor :user_info
 			attr_accessor :request_data

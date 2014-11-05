@@ -1,6 +1,6 @@
-## Popular
+## Links
 
-Displays links from the "ostatnio popularne" frame
+Displays links from the main page
 
 ```
 client.popular_show('promoted')

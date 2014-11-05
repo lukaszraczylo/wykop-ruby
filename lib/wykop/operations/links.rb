@@ -1,18 +1,18 @@
 module Wykop
 	module Operations
-		class Popular
+		class Links
 			def initialize(client)
 				@client = client
 				@request = Wykop::Operations::Request.new(@client)
 			end
 
-			def popular_show(what = nil)
+			def links_show(what = nil)
 				if what.nil?
 					what = 'promoted'
 				else
 					what = 'upcoming'
 				end
-				q_url = replace_url('popular', what)
+				q_url = replace_url('links', what)
 				q_body = Hash.new
 				return @request.execute(q_url, q_body)
 			end
