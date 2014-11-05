@@ -7,6 +7,7 @@ module Wykop
 		class User
       def initialize(client)
         @client = client
+        @request = Wykop::Operations::Request.new(@client)
       end
 
       def login
@@ -19,7 +20,7 @@ module Wykop
       end
 
       def info(what = nil)
-      	request = Wykop::Operations::Request.new(@client)
+      	# Getting information about user account
       	if what == nil
       		return @client.user_info
       	else
@@ -27,14 +28,44 @@ module Wykop
       	end
       end
 
+      def favorites()
+      	# Listing favourites for current user
+      	q_url = self.replace_url('user', 'favorites')
+      	q_body = Hash.new
+      	return @request.execute(q_url, q_body)
+      end
+
+      def observed()
+      	# Listing observed for current user
+      	q_url = self.replace_url('user', 'observed')
+      	q_body = Hash.new
+      	return @request.execute(q_url, q_body)
+      end
+
+      def tags()
+      	# Listing observed for current user
+      	q_url = self.replace_url('user', 'tags')
+      	q_body = Hash.new
+      	return @request.execute(q_url, q_body)
+      end
+
+
+
+
+      # Needs to be here, at least till i figure out where to put it
+
+      def replace_url( banana = nil, potato = nil)
+      	standard_url = "#{@client.configuration.api_host}/banana/potato/appkey/#{@client.configuration.app_user_key}/userkey/#{@client.user_info['userkey']}"
+      	return standard_url.gsub(/banana/, banana).gsub(/potato/, potato)
+      end
+
       private
 
       def login_request(params = nil)
       	# Building request URL
-      	request = Wykop::Operations::Request.new(@client)
       	q_body = { 'login' => @client.configuration.app_username, 'accountkey' => @client.configuration.app_generated_key }
       	q_url = "#{@client.configuration.api_host}/user/login/appkey/#{@client.configuration.app_user_key}"
-      	request.execute(q_url, q_body)
+      	@request.execute(q_url, q_body)
       end
 		end
 	end
