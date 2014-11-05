@@ -1,5 +1,9 @@
 # Gem for wykop.pl API
 
+[![Gem Version](https://badge.fury.io/rb/wykop.svg)](http://badge.fury.io/rb/wykop) 
+[![Code Climate](https://codeclimate.com/github/lukaszraczylo/wykop-ruby/badges/gpa.svg)](https://codeclimate.com/github/lukaszraczylo/wykop-ruby)
+[![Gratipay](https://img.shields.io/gratipay/lukaszraczylo.svg)](https://gratipay.com/lukaszraczylo/)
+
 This is a Ruby Gem for the Wykop.pl API. It should simplify the process of consuming data from the Wykop.pl API for developers using Ruby.
 
 
