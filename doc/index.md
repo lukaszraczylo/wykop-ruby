@@ -7,3 +7,4 @@
 	* [links](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/links.md)
 	* [popular](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/popular.md)
 	* [top diggs](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/top.md)
+	* [observatory](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/observatory.md)
