@@ -1,16 +1,20 @@
 require 'wykop/configuration'
 require 'wykop/operations/user'
-require 'wykop/operations/request'
-require 'wykop/operations/top'
 require 'wykop/error'
 require 'wykop/burst_struct'
 require 'awesome_print'
 require 'httparty'
 
+
+require 'wykop/operations/request'
+
+require 'wykop/operations/top'
+require 'wykop/operations/popular'
+
 module Wykop
 	class Client
 			REQUEST_CLASSES = [ Wykop::Operations::User, 
-				Wykop::Operations::Request, Wykop::Operations::Top ]
+				Wykop::Operations::Request, Wykop::Operations::Top, Wykop::Operations::Popular ]
 			attr_reader :configuration
 			attr_accessor :user_info
 			attr_accessor :request_data
