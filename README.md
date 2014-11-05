@@ -5,7 +5,8 @@ This is a Ruby Gem for the Wykop.pl API. It should simplify the process of consu
 
 ### Heads up
 
-Until version 0.9+ gem will and should be considered as 'under heavy development'. Please be aware and don't bitch too much.
+Until version 0.9+ gem will and should be considered as 'under heavy development'. Please be aware and don't bitch too much. 
+Current gem version: [![Gem Version](https://badge.fury.io/rb/wykop.svg)](http://badge.fury.io/rb/wykop)
 
 If you'd like to contribute - I'm really happy with your pull requests so feel free!
 
