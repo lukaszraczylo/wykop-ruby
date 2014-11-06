@@ -28,7 +28,7 @@ module Wykop
           page = 0
         end
         q_url = replace_url('top', 'date', year, month)
-        q_body = { 'page' => page }
+        q_body = {'page' => page}
         @request.execute(q_url, q_body)
       end
 
@@ -38,7 +38,7 @@ module Wykop
         @request.execute(q_url, q_body)
       end
 
-      def replace_url( banana = nil, potato = nil, year = nil, month = nil)
+      def replace_url(banana = nil, potato = nil, year = nil, month = nil)
         standard_url = "#{@client.configuration.api_host}/banana/potato/param1/param2/appkey,#{@client.configuration.app_user_key}/userkey,#{@client.user_info['userkey']}"
         # Checking parameters existence and removing them from url, just in case
         if year
@@ -48,7 +48,7 @@ module Wykop
         end
         if month
           ret_url = standard_url.gsub(/param2/, month.to_s)
-        else 
+        else
           ret_url = standard_url.gsub(/\/param2/, '')
         end
         return ret_url.gsub(/banana/, banana).gsub(/potato/, potato)

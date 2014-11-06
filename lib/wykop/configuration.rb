@@ -23,7 +23,7 @@ module Wykop
     end
 
     def valid?
-      AUTH_KEYS.none?{ |key| send(key).nil? || send(key).empty? }
+      AUTH_KEYS.none? { |key| send(key).nil? || send(key).empty? }
     end
   end
 end

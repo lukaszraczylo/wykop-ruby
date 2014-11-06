@@ -25,12 +25,12 @@ module BurstStruct
     def self.convert_array(array)
       array.map do |item|
         case item
-        when Hash
-          Burst.new(item)
-        when Array
-          Burst.convert_array(item)
-        else
-          item
+          when Hash
+            Burst.new(item)
+          when Array
+            Burst.convert_array(item)
+          else
+            item
         end
       end
     end
@@ -46,14 +46,14 @@ module BurstStruct
     private
 
     def return_or_build_struct(method_name)
-      return Burst.new(@hash[method_name])           if @hash[method_name].is_a?(Hash)
+      return Burst.new(@hash[method_name]) if @hash[method_name].is_a?(Hash)
       return Burst.convert_array(@hash[method_name]) if @hash[method_name].is_a?(Array)
       @hash[method_name]
     end
 
     def find_key(method_name)
       return method_name.to_sym if @hash.keys.include? method_name.to_sym
-      return method_name.to_s   if @hash.keys.include? method_name.to_s
+      return method_name.to_s if @hash.keys.include? method_name.to_s
     end
   end
 end
