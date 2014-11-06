@@ -8,7 +8,7 @@ Hits of the year
 
 ```
 client.top_index
-client.top_index(2013)
+client.top_index({:year => 2013 })
 ```
 
 #### top_date
@@ -20,13 +20,13 @@ Hits of the month
 client.top_date
 
 #year
-client.top_date(2013)
+client.top_date({:year => 2013})
 
 #year and month
-client.top_date(2013, 12)
+client.top_date({:year => 2013, :month => 12})
 
 #year month and page
-client.top_date(2013, 12, 1)
+client.top_date({:year => 2013, :month => 12, :page => 1})
 ```
 
 Default values ( if not specified ) are:

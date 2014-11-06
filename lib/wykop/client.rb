@@ -11,6 +11,7 @@ require 'wykop/operations/top'
 require 'wykop/operations/tags'
 require 'wykop/operations/rank'
 require 'wykop/operations/links'
+require 'wykop/operations/search'
 require 'wykop/operations/stream'
 require 'wykop/operations/popular'
 require 'wykop/operations/observatory'
@@ -19,7 +20,8 @@ module Wykop
   class Client
     REQUEST_CLASSES = [Wykop::Operations::User, Wykop::Operations::Request, Wykop::Operations::Top,
                        Wykop::Operations::Popular, Wykop::Operations::Links, Wykop::Operations::Rank,
-                       Wykop::Operations::Observatory, Wykop::Operations::Tags, Wykop::Operations::Stream]
+                       Wykop::Operations::Observatory, Wykop::Operations::Tags, Wykop::Operations::Stream,
+                       Wykop::Operations::Search]
     attr_reader :configuration
     attr_accessor :user_info
     attr_accessor :request_data

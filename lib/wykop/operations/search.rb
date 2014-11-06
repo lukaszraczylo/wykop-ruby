@@ -6,19 +6,43 @@ module Wykop
         @request = Wykop::Operations::Request.new(@client)
       end
 
-      def links_search(query = "ruby", page = 0, what = "all", sort = "best", kind = "all", from = nil, to = nil, votes = 0)
-        # what – rodzaj znalezisk: all (wszystkie), promoted (na głównej), archive (zarchiwizowane), duplicates (duplikaty)
-        # sort – sortowanie: best (najlepsze), diggs (po liczbie wykopów), comments (po liczbie komentarzy), new (po czasie dodania)
-        # kind – rodzaj znalezisk: all (wszystkie), today (dzisiaj), yesterday (wczoraj), week (ostatni tydzień), month (ostatni miesiąc), range (zakres czasu)
-
-        q_url = replace_url('index', 'links', what, sorted, kind, from, to, votes)
-        q_body = Hash.new
+      def search_index( p = {} )
+        if ! p.has_key?(:page); p[:page] = 0; end
+        q_url = replace_url( { :banana => 'search', :potato => 'index', :page => p[:page] } )
+        q_body = { 'q' => p[:q] }
         return @request.execute(q_url, q_body)
       end
 
-      def replace_url(banana = nil, potato = nil)
-        standard_url = "#{@client.configuration.api_host}/banana/potato/appkey,#{@client.configuration.app_user_key}/userkey,#{@client.user_info['userkey']}"
-        return standard_url.gsub(/banana/, banana).gsub(/potato/, potato)
+      def search_entries( p = {} )
+        if ! p.has_key?(:page); p[:page] = 0; end
+        q_url = replace_url( { :banana => 'search', :potato => 'entries', :page => p[:page] } )
+        q_body = { 'q' => p[:q] }
+        return @request.execute(q_url, q_body)
+      end
+
+      def search_profiles( p = {} )
+        if ! p.has_key?(:page); p[:page] = 0; end
+        q_url = replace_url( { :banana => 'search', :potato => 'profiles', :page => p[:page] } )
+        q_body = { 'q' => p[:q] }
+        return @request.execute(q_url, q_body)
+      end
+
+      def search_links( p = {} )
+        if ! p.has_key?(:page); p[:page] = 0; end
+        q_url = replace_url( { :banana => 'search', :potato => 'profiles', :page => p[:page] } )
+        p.delete(:page)
+        q_body = p
+        return @request.execute(q_url, q_body)
+      end
+
+      def replace_url( p = {} )
+        standard_url = "#{@client.configuration.api_host}/banana/potato/appkey,#{@client.configuration.app_user_key}/userkey,#{@client.user_info['userkey']}/paged"
+        if ! p.has_key?(:page)
+          standard_url = standard_url.gsub(/\/paged/, '')
+        else
+          standard_url = standard_url.gsub(/paged/, "page,#{p[:page]}")
+        end
+        return standard_url.gsub(/banana/, p[:banana]).gsub(/potato/, p[:potato])
       end
     end
   end

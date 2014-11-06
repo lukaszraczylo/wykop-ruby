@@ -10,3 +10,4 @@
   * [popular](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/popular.md)
   * [top diggs](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/top.md)
   * [observatory](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/observatory.md)
+* [Search](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/search.md)

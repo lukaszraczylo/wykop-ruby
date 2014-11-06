@@ -3,7 +3,7 @@
 Displays links from the main page
 
 ```
-client.popular_show('promoted')
+client.popular_show({:category => 'promoted'})
 ```
 
 Available switches
