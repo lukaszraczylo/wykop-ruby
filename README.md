@@ -47,5 +47,5 @@ The gem uses a client model to query against the API. To create and configure cl
 ```
 require 'wykop'
 client = Wykop::Client.new( { app_user_key: WYKOP_DEV_APP_KEY, app_user_secret: WYKOP_DEV_APP_SECRET, 
-								app_generated_key: WYKOP_DEV_APP_GENERATED_KEY, app_username: WYKOP_USERNAME, api_host: 'http://a.wykop.pl' })
+                app_generated_key: WYKOP_DEV_APP_GENERATED_KEY, app_username: WYKOP_USERNAME, api_host: 'http://a.wykop.pl' })
 ```
