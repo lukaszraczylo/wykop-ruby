@@ -6,10 +6,7 @@ module Wykop
         @request = Wykop::Operations::Request.new(@client)
       end
 
-      def rank_show(how = nil)
-        if how.nil?
-          how = 'rank'
-        end
+      def rank_show(how = 'rank')
         q_url = replace_url('rank', 'index', how)
         ap q_url
         q_body = Hash.new

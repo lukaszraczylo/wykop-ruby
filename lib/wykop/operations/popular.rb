@@ -6,10 +6,8 @@ module Wykop
         @request = Wykop::Operations::Request.new(@client)
       end
 
-      def popular_show(what = nil)
-        if what.nil?
-          what = 'promoted'
-        else
+      def popular_show(what = 'promoted')
+        if what != 'promoted'
           what = 'upcoming'
         end
         q_url = replace_url('popular', what)

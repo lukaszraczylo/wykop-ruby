@@ -6,19 +6,13 @@ module Wykop
         @request = Wykop::Operations::Request.new(@client)
       end
 
-      def stream_show(page = nil)
-        if page.nil?
-          page = 0
-        end
+      def stream_show(page = 0)
         q_url = replace_url('stream', 'index', page)
         q_body = Hash.new
         return @request.execute(q_url, q_body)
       end
 
-      def stream_hot(page = nil)
-        if page.nil?
-          page = 0
-        end
+      def stream_hot(page = 0)
         q_url = replace_url('stream', 'hot', page)
         q_body = Hash.new
         return @request.execute(q_url, q_body)

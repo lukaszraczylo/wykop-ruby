@@ -17,15 +17,9 @@ module Wykop
         @request.execute(q_url, q_body)
       end
 
-      def top_date(year = nil, month = nil, page = nil)
+      def top_date(year = nil, month = 1, page = 0)
         if year.nil?
           year = Chronic.parse('last year').strftime("%Y")
-        end
-        if month.nil?
-          month = 1
-        end
-        if page.nil?
-          page = 0
         end
         q_url = replace_url('top', 'date', year, month)
         q_body = {'page' => page}
