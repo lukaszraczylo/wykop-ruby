@@ -16,7 +16,7 @@ module Wykop
         return @request.execute(q_url, q_body)
       end
 
-      def replace_url( banana = nil, potato = nil, how = nil)
+      def replace_url(banana = nil, potato = nil, how = nil)
         standard_url = "#{@client.configuration.api_host}/banana/potato/order/order_content/appkey,#{@client.configuration.app_user_key}/userkey,#{@client.user_info['userkey']}"
         return standard_url.gsub(/banana/, banana).gsub(/potato/, potato).gsub(/order_content/, how.to_s)
       end
