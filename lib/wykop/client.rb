@@ -7,6 +7,7 @@ require 'httparty'
 
 require 'wykop/operations/request'
 
+require 'wykop/operations/add'
 require 'wykop/operations/top'
 require 'wykop/operations/tags'
 require 'wykop/operations/rank'
@@ -21,7 +22,7 @@ module Wykop
     REQUEST_CLASSES = [Wykop::Operations::User, Wykop::Operations::Request, Wykop::Operations::Top,
                        Wykop::Operations::Popular, Wykop::Operations::Links, Wykop::Operations::Rank,
                        Wykop::Operations::Observatory, Wykop::Operations::Tags, Wykop::Operations::Stream,
-                       Wykop::Operations::Search]
+                       Wykop::Operations::Search, Wykop::Operations::Add]
     attr_reader :configuration
     attr_accessor :user_info
     attr_accessor :request_data

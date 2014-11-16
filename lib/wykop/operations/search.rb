@@ -29,7 +29,7 @@ module Wykop
 
       def search_links( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url( { :banana => 'search', :potato => 'profiles', :page => p[:page] } )
+        q_url = replace_url( { :banana => 'search', :potato => 'links', :page => p[:page] } )
         p.delete(:page)
         q_body = p
         return @request.execute(q_url, q_body)
