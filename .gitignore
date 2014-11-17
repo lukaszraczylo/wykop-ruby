@@ -3,3 +3,4 @@ sample-client.rb
 .DS_Store
 /.idea/
 Gemfile.lock
+prepare.sh

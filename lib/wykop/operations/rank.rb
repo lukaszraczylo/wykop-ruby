@@ -9,7 +9,6 @@ module Wykop
       def rank_show( p = {} )
         if ! p.has_key?(:order); p[:order] = 'rank'; end
         q_url = replace_url({ :banana => 'rank', :potato => 'index', :order => p[:order] })
-        ap q_url
         q_body = Hash.new
         return @request.execute(q_url, q_body)
       end
