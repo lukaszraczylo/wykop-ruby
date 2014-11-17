@@ -3,7 +3,7 @@ require 'wykop/operations/user'
 require 'wykop/error'
 require 'awesome_print'
 require 'httparty'
-
+require 'json'
 
 require 'wykop/operations/request'
 
