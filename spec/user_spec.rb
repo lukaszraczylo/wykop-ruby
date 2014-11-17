@@ -38,6 +38,10 @@ describe "User session" do
         params = { :param1 => 2242488, :param2 => 27794764 }
       elsif mthd.to_s == 'favorite_index'
         params = { :param1 => 56072 }
+      elsif mthd.to_s =~ /messages_(read|delete)/
+        params = { :param1 => 'ouna-' }
+      elsif mthd.to_s == 'message_send'
+        params = { :param1 => 'ouna-', :body => 'test wykop gem' }
       end
       if params.nil?
         client_request = CLIENT.send(mthd)
@@ -46,9 +50,12 @@ describe "User session" do
       end
       if client_request.is_a?(Hash)
         # Wykop API throws errors only with Hash
-        if client_request.has_key?('error') || client_request =~ /.*<title>Ups...<\/title>.*/
-          message = "Error! Code: #{client_request['error']['code']} => #{client_request['error']['message']}"
-          fail message
+        if client_request.has_key?('error') || client_request =~ /.*<title>Ups...<\/title>.*/ 
+          if client_request['error']['code'] != 112
+            # Ignoring error 112 ( user doesn't accept messages )
+            message = "Error! Code: #{client_request['error']['code']} => #{client_request['error']['message']}"
+            fail message
+          end
         end
       end
     end

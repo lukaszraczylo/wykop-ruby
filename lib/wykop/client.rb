@@ -16,6 +16,7 @@ require 'wykop/operations/search'
 require 'wykop/operations/stream'
 require 'wykop/operations/popular'
 require 'wykop/operations/related'
+require 'wykop/operations/message'
 require 'wykop/operations/favorites'
 require 'wykop/operations/observatory'
 
@@ -25,7 +26,7 @@ module Wykop
                        Wykop::Operations::Popular, Wykop::Operations::Links, Wykop::Operations::Rank,
                        Wykop::Operations::Observatory, Wykop::Operations::Tags, Wykop::Operations::Stream,
                        Wykop::Operations::Search, Wykop::Operations::Add, Wykop::Operations::Related,
-                       Wykop::Operations::Favorites]
+                       Wykop::Operations::Favorites, Wykop::Operations::Messages]
     attr_reader :configuration
     attr_accessor :user_info
     attr_accessor :request_data

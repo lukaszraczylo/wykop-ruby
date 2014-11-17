@@ -3,6 +3,7 @@
 * User
   * [user basics](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/user/basic.md)
   * [rank](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/user/rank.md)
+  * [messages](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/user/pm.md)
 * Diggs
   * [add new](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/add.md)
   * [tags](https://github.com/lukaszraczylo/wykop-ruby/tree/master/doc/diggs/tags.md)
