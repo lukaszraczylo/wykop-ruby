@@ -16,7 +16,7 @@ describe "User session" do
       if client_request.has_key?('error')
         message = "Error! Code: #{client_request['error']['code']} => #{client_request['error']['message']}"
         fail message
-      elsif client_request.info('login').nil?
+      elsif client_request.nil?
         fail "Can't log in"
       end
     end
