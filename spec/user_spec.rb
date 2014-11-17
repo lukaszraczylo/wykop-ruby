@@ -12,7 +12,11 @@ describe "User session" do
 
   it "can check profile / log in" do
     if CLIENT.login
-      if CLIENT.info('login').nil?
+      client_request = CLIENT.info
+      if client_request.has_key?('error')
+        message = "Error! Code: #{client_request['error']['code']} => #{client_request['error']['message']}"
+        fail message
+      elsif client_request.info('login').nil?
         fail "Can't log in"
       end
     end
@@ -39,7 +43,8 @@ describe "User session" do
       if client_request.is_a?(Hash)
         # Wykop API throws errors only with Hash
         if client_request.has_key?('error')
-          fail
+          message = "Error! Code: #{client_request['error']['code']} => #{client_request['error']['message']}"
+          fail message
         end
       end
     end

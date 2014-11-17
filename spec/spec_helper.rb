@@ -4,6 +4,10 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'wykop'
 require 'rspec'
 
+RSpec.configure do |c|
+  c.fail_fast = true
+end
+
 CFG_USER_KEY    = ENV['WYKOP_CFG_USER_KEY']
 CFG_USER_SECRET = ENV['WYKOP_CFG_USER_SECRET']
 CFG_USER_NAME   = ENV['WYKOP_CFG_USER_NAME']
