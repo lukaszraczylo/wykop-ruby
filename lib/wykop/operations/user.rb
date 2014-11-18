@@ -26,31 +26,26 @@ module Wykop
 
       def favorites()
         # Listing favourites for current user
-        q_url = self.replace_url('user', 'favorites')
+        q_url = @request.replace_url({:banana => 'user', :potato => 'favorites'})
         q_body = Hash.new
         return @request.execute(q_url, q_body)
       end
 
       def observed()
         # Listing observed for current user
-        q_url = self.replace_url('user', 'observed')
+        q_url = @request.replace_url({:banana => 'user', :potato => 'observed'})
         q_body = Hash.new
         return @request.execute(q_url, q_body)
       end
 
       def tags()
         # Listing observed for current user
-        q_url = self.replace_url('user', 'tags')
+        q_url = @request.replace_url({:banana => 'user', :potato => 'tags'})
         q_body = Hash.new
         return @request.execute(q_url, q_body)
       end
 
       # Needs to be here, at least till i figure out where to put it
-
-      def replace_url(banana = nil, potato = nil)
-        standard_url = "#{@client.configuration.api_host}/banana/potato/appkey,#{@client.configuration.app_user_key}/userkey,#{@client.user_info['userkey']}"
-        return standard_url.gsub(/banana/, banana).gsub(/potato/, potato)
-      end
 
       private
 
