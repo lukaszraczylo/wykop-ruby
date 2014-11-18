@@ -25,7 +25,7 @@ describe "User session" do
   # Checking all available methods
   # We skip 'add_new' to avoid spamming
   # We skip 'observatory_entries_comments' as it throws internal API error.
-  available_methods = CLIENT.methods(false).sort - [:add_new, :execute, :replace_url, :login, :observatory_entries_comments, :related_add]
+  available_methods = CLIENT.methods(false).sort - [:link_bury, :add_new, :execute, :replace_url, :login, :observatory_entries_comments, :related_add]
   available_methods.each do |mthd|
     it "- method check: #{mthd}" do
       params = nil
@@ -42,6 +42,8 @@ describe "User session" do
         params = { :param1 => 'ouna-' }
       elsif mthd.to_s == 'message_send'
         params = { :param1 => 'ouna-', :body => 'test wykop gem' }
+      elsif mthd.to_s =~ /link_/
+        params = { :param1 => 2248060 }
       end
       if params.nil?
         client_request = CLIENT.send(mthd)
@@ -51,8 +53,9 @@ describe "User session" do
       if client_request.is_a?(Hash)
         # Wykop API throws errors only with Hash
         if client_request.has_key?('error') || client_request =~ /.*<title>Ups...<\/title>.*/ 
-          if client_request['error']['code'] != 112
+          if client_request['error']['code'].to_s =~ /!(112|1002)/
             # Ignoring error 112 ( user doesn't accept messages )
+            # Ignoring error 1002 ( no controller to serve this query )
             message = "Error! Code: #{client_request['error']['code']} => #{client_request['error']['message']}"
             fail message
           end
