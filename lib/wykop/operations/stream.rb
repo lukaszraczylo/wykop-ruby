@@ -8,16 +8,12 @@ module Wykop
 
       def stream_show( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url({ :banana => 'stream', :potato => 'index', :page => p[:page]} )
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(replace_url({ :banana => 'stream', :potato => 'index', :page => p[:page]} ), Hash.new)
       end
 
       def stream_hot( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url({ :banana => 'stream', :potato => 'hot', :page => p[:page]} )
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(replace_url({ :banana => 'stream', :potato => 'hot', :page => p[:page]} ), Hash.new)
       end
 
       def replace_url(p = {} )

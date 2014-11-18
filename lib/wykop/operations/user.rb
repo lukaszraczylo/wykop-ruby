@@ -26,23 +26,17 @@ module Wykop
 
       def favorites()
         # Listing favourites for current user
-        q_url = @request.replace_url({:banana => 'user', :potato => 'favorites'})
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({:banana => 'user', :potato => 'favorites'}), Hash.new)
       end
 
       def observed()
         # Listing observed for current user
-        q_url = @request.replace_url({:banana => 'user', :potato => 'observed'})
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({:banana => 'user', :potato => 'observed'}), Hash.new)
       end
 
       def tags()
         # Listing observed for current user
-        q_url = @request.replace_url({:banana => 'user', :potato => 'tags'})
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({:banana => 'user', :potato => 'tags'}), Hash.new)
       end
 
       # Needs to be here, at least till i figure out where to put it

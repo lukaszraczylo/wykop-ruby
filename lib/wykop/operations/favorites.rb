@@ -7,27 +7,19 @@ module Wykop
       end
 
       def favorite_index( p = {} )
-        q_url = @request.replace_url({ :banana => 'favorites', :potato => 'index', :param1 => p[:param1] } )
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({ :banana => 'favorites', :potato => 'index', :param1 => p[:param1] } ), Hash.new)
       end
 
       def favorite_comments( p = {} )
-        q_url = @request.replace_url({ :banana => 'favorites', :potato => 'comments' } )
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({ :banana => 'favorites', :potato => 'comments' } ), Hash.new)
       end
 
       def favorite_entries( p = {} )
-        q_url = @request.replace_url({ :banana => 'favorites', :potato => 'entries' } )
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({ :banana => 'favorites', :potato => 'entries' } ), Hash.new)
       end
 
       def favorite_lists( p = {} )
-        q_url = @request.replace_url({ :banana => 'favorites', :potato => 'lists' } )
-        q_body = Hash.new
-        return @request.execute(q_url, q_body)
+        return @request.execute(@request.replace_url({ :banana => 'favorites', :potato => 'lists' } ), Hash.new)
       end
     end
   end

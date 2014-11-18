@@ -8,31 +8,23 @@ module Wykop
 
       def search_index( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url( { :banana => 'search', :potato => 'index', :page => p[:page] } )
-        q_body = { 'q' => p[:q] }
-        return @request.execute(q_url, q_body)
+        return @request.execute(replace_url( { :banana => 'search', :potato => 'index', :page => p[:page] } ), { 'q' => p[:q] })
       end
 
       def search_entries( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url( { :banana => 'search', :potato => 'entries', :page => p[:page] } )
-        q_body = { 'q' => p[:q] }
-        return @request.execute(q_url, q_body)
+        return @request.execute(replace_url( { :banana => 'search', :potato => 'entries', :page => p[:page] } ), { 'q' => p[:q] })
       end
 
       def search_profiles( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url( { :banana => 'search', :potato => 'profiles', :page => p[:page] } )
-        q_body = { 'q' => p[:q] }
-        return @request.execute(q_url, q_body)
+        return @request.execute(replace_url( { :banana => 'search', :potato => 'profiles', :page => p[:page] } ), { 'q' => p[:q] })
       end
 
       def search_links( p = {} )
         if ! p.has_key?(:page); p[:page] = 0; end
-        q_url = replace_url( { :banana => 'search', :potato => 'links', :page => p[:page] } )
         p.delete(:page)
-        q_body = p
-        return @request.execute(q_url, q_body)
+        return @request.execute(replace_url( { :banana => 'search', :potato => 'links', :page => p[:page] } ), q_url, p)
       end
 
       def replace_url( p = {} )

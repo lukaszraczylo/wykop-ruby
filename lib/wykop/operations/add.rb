@@ -8,11 +8,8 @@ module Wykop
 
       def add_new(p = {})
         # Adding new link
-        q_url = replace_url( { :banana => 'add', :potato => 'index', :group => p[:group].gsub(/^\#/, '') } )
-        ap q_url
         p.delete(:group)
-        q_body = p
-        @request.execute(q_url, q_body)
+        @request.execute(replace_url( { :banana => 'add', :potato => 'index', :group => p[:group].gsub(/^\#/, '') } ), p)
       end
 
       def replace_url( p = {} )
