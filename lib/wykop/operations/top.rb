@@ -3,6 +3,7 @@ require 'chronic'
 module Wykop
   module Operations
     class Top
+      # Documentation: http://www.wykop.pl/dla-programistow/dokumentacja/#info6_8
       def initialize(client)
         @client = client
         @request = Wykop::Operations::Request.new(@client)

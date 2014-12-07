@@ -1,6 +1,7 @@
 module Wykop
   module Operations
     class Link
+      # Documentation: http://www.wykop.pl/dla-programistow/dokumentacja/#info6_2
       def initialize(client)
         @client = client
         @request = Wykop::Operations::Request.new(@client)

@@ -1,6 +1,7 @@
 module Wykop
   module Operations
     class Tags
+      # Documentation: http://www.wykop.pl/dla-programistow/dokumentacja/#info6_19
       def initialize(client)
         @client = client
         @request = Wykop::Operations::Request.new(@client)

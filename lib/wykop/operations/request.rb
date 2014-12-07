@@ -4,6 +4,7 @@ require 'httparty'
 module Wykop
   module Operations
     class Request
+      # Class created to prepare and parse all requests, includes signing replacing parameters.
       def initialize(client)
         @client = client
       end
