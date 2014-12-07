@@ -44,6 +44,10 @@ describe "User session" do
         params = { :param1 => 'ouna-', :body => 'test wykop gem' }
       elsif mthd.to_s =~ /link_/
         params = { :param1 => 2248060 }
+      elsif mthd.to_s == 'tag_show'
+        params = { :param1 => 'polityka', :type => 'entries' }
+      elsif mthd.to_s =~ /tag_.*(block|observe)/
+        params = { :param1 => 'polityka' }
       end
       if params.nil?
         client_request = CLIENT.send(mthd)
