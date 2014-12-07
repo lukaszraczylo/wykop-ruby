@@ -25,7 +25,8 @@ describe "User session" do
   # Checking all available methods
   # We skip 'add_new' to avoid spamming
   # We skip 'observatory_entries_comments' as it throws internal API error.
-  available_methods = CLIENT.methods(false).sort - [:link_bury, :add_new, :execute, :replace_url, :login, :observatory_entries_comments, :related_add]
+  available_methods = CLIENT.methods(false).sort - [:comments_add, :comments_plus, :comments_minus, :comments_delete, :comments_edit,
+    :link_bury, :add_new, :execute, :replace_url, :login, :observatory_entries_comments, :related_add]
   available_methods.each do |mthd|
     it "- method check: #{mthd}" do
       params = nil

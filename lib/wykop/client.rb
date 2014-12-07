@@ -29,7 +29,7 @@ module Wykop
                        Wykop::Operations::Observatory, Wykop::Operations::Tags, Wykop::Operations::Stream,
                        Wykop::Operations::Search, Wykop::Operations::Add, Wykop::Operations::Related,
                        Wykop::Operations::Favorites, Wykop::Operations::Messages, Wykop::Operations::Link,
-                       Wykop::Operations::Tag]
+                       Wykop::Operations::Tag, Wykop::Operations::Comments]
     attr_reader :configuration
     attr_accessor :user_info
     attr_accessor :request_data
