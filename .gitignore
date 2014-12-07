@@ -4,3 +4,4 @@ sample-client.rb
 /.idea/
 Gemfile.lock
 prepare.sh
+*.gem
