@@ -19,6 +19,7 @@ require 'wykop/operations/stream'
 require 'wykop/operations/popular'
 require 'wykop/operations/related'
 require 'wykop/operations/message'
+require 'wykop/operations/comments'
 require 'wykop/operations/favorites'
 require 'wykop/operations/observatory'
 
