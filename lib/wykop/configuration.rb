@@ -1,7 +1,7 @@
 module Wykop
   class Configuration
     AUTH_KEYS = [:app_user_key, :app_username, :app_generated_key, :app_user_secret, :api_host]
-    attr_accessor *AUTH_KEYS
+    attr_accessor(*AUTH_KEYS)
 
     # Creates configuration
     # @param [Hash] - hash containing config params and their values

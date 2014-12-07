@@ -31,7 +31,7 @@ module Wykop
         end
         request_signature = Digest::MD5.hexdigest(@client.configuration.app_user_secret + req_url + q_body_parsed.join(','))
         obj = HTTParty.post(req_url.to_s, :body => req_data, :headers => {"apisign" => request_signature}).to_json
-        result = JSON.parse(obj)
+        JSON.parse(obj)
       end
     end
   end
