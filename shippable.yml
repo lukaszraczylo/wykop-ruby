@@ -1,0 +1,16 @@
+branches:
+  only:
+    - master
+    - development
+language: ruby
+env:
+
+install:
+  - bundle install
+
+notifications:
+  email:
+    recipients:
+      - shippable@raczylo.com
+    on_success: change
+    on_failure: always
