@@ -10,6 +10,9 @@ env:
   - secure: dQ8X7/mrIv0BuFvRBqy5AYtY8q3bhjoMe1isGBCY1/0tt13hPAh9nVpKK+j2idejtE/gZ2Hlb5TqAKpyOETIzDrmRM0i6sIf8uT5PcXYOmfEqUEJuFA5r73M+afM5QBTsHzpA1irfjZBo4v7N0uXPEncHbOKby+LlO62KSvd//RLGvBp8of8gEnr7fTQS373Nu1l2vH3H0n+/l8Mp/w06uOBXPmRY3SrQr1dnG+WRu1pPhDByVxsdxXo9R3r3W/cmLag0nbiPAsAyC1efPFemkhdeMTyZbDaWRYVlPToHOSrGQdIZ2CzftWePFB+wEC6A6DCAOA8sCrdX+2nMMYprw==
 
 install:
+  # as per https://github.com/jnunemaker/httparty/issues/375
+  - gem uninstall bundler
+  - gem install bundler -v '1.6.9'
   - bundle install
 
 notifications:
